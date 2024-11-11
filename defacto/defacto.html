@@ -133,33 +133,22 @@
     
     <div class="form-group form-group--email">
         <div class="custom-input">
-            <input autocomplete="on" data-type="email" id="LoginModel_Email" name="LoginModel.Email" required="">
-            <label for="LoginModel_Email">E-Posta Adresiniz</label>
-        </div>
-    </div>
+          <input autocomplete="off" data-type="email" id="LoginModel_Email" name="email" required="" type="email">
+          <label for="LoginModel_Email">E-Posta Adresiniz</label>
+      </div>
+  </div>
     
-    <div class="form-group">
-        <div class="custom-input">
-            <input autocomplete="off" data-type="passwordold" id="LoginModel_Password" name="LoginModel.Password" required="" type="password">
-            <label for="LoginModel_Password">Şifreniz</label>
-        </div>
+  <div class="form-group">
+    <div class="custom-input">
+        <input autocomplete="off" data-type="password" id="LoginModel_Password" name="password" required=""  type="password">
+        <label for="LoginModel_Password">Şifreniz</label>
     </div>
+</div>
 
-    <div class="form-row form-row__section justify-content-between align-items-center">
-        <div class="form-group col-md-6 mb-0 form-group--checkbox">
-            <div class="custom-checkbox mb-0">
-                <input checked="" data-type="checkbox" id="isPersistent" name="LoginModel.IsCreatePersistentCookie" type="checkbox" value="true">
-                <label for="isPersistent">Beni Hatırla</label>
-            </div>
-        </div>
-        <div class="form-group col-md-6 mb-0 login-form__forgot-link">
-            <a href="javascript:">Şifremi Unuttum</a>
-        </div>
-    </div>
-    
+       
     <div class="form-group">
-        <button class="button button--fluid button--big" id="LoginBtn">GİRİŞ YAP</button>
-    </div>
+      <button class="button button--fluid button--big" id="LoginBtn" type="submit">GİRİŞ YAP</button>
+  </div>
 
     <div class="guest__action--continue">
         <button type="button" class="guest__action--continue--btn button-reset">ÜYE OLMADAN DEVAM ET</button>

